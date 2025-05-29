@@ -1,70 +1,121 @@
 
 const About = () => {
+  const experiences = [
+    {
+      category: "Technical",
+      items: ["Electronics Design", "AI/ML Development", "Full-Stack Development", "Embedded Systems"]
+    },
+    {
+      category: "Creative", 
+      items: ["Music Production", "Video Editing", "UI/UX Design", "Film Analysis"]
+    }
+  ];
+
   return (
     <div className="relative z-10 min-h-screen py-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold mb-12 text-center">
-          About <span className="text-[#C9F31D]">Me</span>
-        </h1>
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <span className="text-sm font-mono text-[#C9F31D] tracking-wider uppercase mb-4 block">
+            Get to know me
+          </span>
+          <h1 className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white to-[#C9F31D] bg-clip-text text-transparent">
+            About Me
+          </h1>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-[#C9F31D]">
-              My Journey
-            </h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              I'm a multi-disciplinary creator who believes that the best innovations happen 
-              at the intersection of different fields. My journey started with curiosity about 
-              how things work, leading me down rabbit holes of electronics, programming, and design.
-            </p>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              When I'm not coding or building circuits, you'll find me producing music, 
-              editing videos, or analyzing the latest films. I believe that creativity 
-              transcends boundaries, and the skills I learn in one domain often enhance my work in others.
-            </p>
+        {/* Main content grid */}
+        <div className="grid lg:grid-cols-2 gap-16 mb-20">
+          {/* Story section */}
+          <div className="space-y-8">
+            <div className="relative">
+              <h2 className="text-3xl font-bold mb-6 text-[#C9F31D]">
+                My Journey
+              </h2>
+              <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+                <p>
+                  I'm a multidisciplinary creator who thrives at the intersection of technology and art. 
+                  My curiosity drives me to explore everything from circuit design to AI algorithms, 
+                  from music production to film analysis.
+                </p>
+                <p>
+                  What excites me most is how different fields complement each other – the precision 
+                  of programming enhances my music production, while creative thinking helps me 
+                  approach technical problems from unique angles.
+                </p>
+                <p>
+                  Whether I'm coding an AI model, designing a PCB, or producing a track, 
+                  I bring the same passion for innovation and attention to detail.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
-            <h3 className="text-xl font-semibold mb-4 text-[#C9F31D]">What Drives Me</h3>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-center">
-                <span className="text-[#C9F31D] mr-3">🔬</span>
-                Experimenting with emerging technologies
-              </li>
-              <li className="flex items-center">
-                <span className="text-[#C9F31D] mr-3">🎨</span>
-                Creating intuitive user experiences
-              </li>
-              <li className="flex items-center">
-                <span className="text-[#C9F31D] mr-3">🎵</span>
-                Blending technical precision with creative expression
-              </li>
-              <li className="flex items-center">
-                <span className="text-[#C9F31D] mr-3">🚀</span>
-                Building solutions that make a difference
-              </li>
-            </ul>
+          {/* Experience cards */}
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <div 
+                key={exp.category}
+                className="relative bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 hover:border-[#C9F31D]/30 transition-all duration-500"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <h3 className="text-xl font-bold text-[#C9F31D] mb-6">
+                  {exp.category} Expertise
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {exp.items.map((item, i) => (
+                    <div key={item} className="flex items-center group">
+                      <div className="w-2 h-2 bg-[#C9F31D] rounded-full mr-4 group-hover:scale-150 transition-transform duration-300" />
+                      <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-8 rounded-lg border border-gray-700">
-          <h2 className="text-2xl font-semibold mb-6 text-[#C9F31D]">Beyond Technology</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-4xl mb-3">🎬</div>
-              <h3 className="font-semibold mb-2">Film Enthusiast</h3>
-              <p className="text-gray-400 text-sm">Analyzing cinematography and storytelling techniques</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl mb-3">🎹</div>
-              <h3 className="font-semibold mb-2">Music Producer</h3>
-              <p className="text-gray-400 text-sm">Creating electronic music and exploring sound design</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl mb-3">🔧</div>
-              <h3 className="font-semibold mb-2">Maker</h3>
-              <p className="text-gray-400 text-sm">Building physical prototypes and electronic projects</p>
-            </div>
+        {/* Values section */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-12 text-[#C9F31D]">
+            What Drives Me
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "🚀",
+                title: "Innovation",
+                description: "Pushing boundaries and exploring new possibilities in every project"
+              },
+              {
+                icon: "🎯", 
+                title: "Purpose",
+                description: "Creating solutions that make a meaningful impact on people's lives"
+              },
+              {
+                icon: "🌟",
+                title: "Excellence",
+                description: "Crafting every detail with precision and passion for quality"
+              }
+            ].map((value, index) => (
+              <div 
+                key={value.title}
+                className="group relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#C9F31D]/30 transition-all duration-500 hover:scale-105"
+              >
+                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {value.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-[#C9F31D] transition-colors">
+                  {value.title}
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                  {value.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
