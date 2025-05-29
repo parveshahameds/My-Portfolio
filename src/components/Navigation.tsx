@@ -16,53 +16,60 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="relative z-50 p-6">
-      <div className="flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-[#C9F31D] hover:text-white transition-colors">
-          Portfolio
-        </Link>
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-gray-800/50 backdrop-blur-sm">
+      <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="text-2xl font-light text-[#C9F31D] hover:text-white transition-colors">
+            Portfolio
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map(item => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`hover:text-[#C9F31D] transition-colors ${
-                location.pathname === item.path ? 'text-[#C9F31D]' : 'text-white'
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map(item => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-mono transition-colors duration-300 ${
+                  location.pathname === item.path 
+                    ? 'text-[#C9F31D]' 
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-white hover:text-[#C9F31D] transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white hover:text-[#C9F31D] transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden mt-6 pt-6 border-t border-gray-800">
+            {navItems.map(item => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`block py-3 text-sm font-mono transition-colors ${
+                  location.pathname === item.path 
+                    ? 'text-[#C9F31D]' 
+                    : 'text-gray-400 hover:text-white'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-95 p-6 backdrop-blur-sm">
-          {navItems.map(item => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`block py-3 hover:text-[#C9F31D] transition-colors ${
-                location.pathname === item.path ? 'text-[#C9F31D]' : 'text-white'
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
     </nav>
   );
 };

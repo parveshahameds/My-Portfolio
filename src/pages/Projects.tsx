@@ -1,174 +1,121 @@
 
 import { useState } from "react";
+import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
 
   const projects = [
     {
       id: 1,
       title: "Neural Music Generator",
-      category: "AI",
-      description: "Deep learning model that composes original music based on mood and genre preferences using transformer architecture.",
+      category: "AI/ML",
+      description: "Deep learning model for composing original music using transformer architecture and MIDI processing.",
       tech: ["Python", "PyTorch", "MIDI", "React"],
-      gradient: "from-purple-500 via-pink-500 to-red-500",
-      status: "Live"
+      status: "Active"
     },
     {
       id: 2,
-      title: "Smart IoT Ecosystem", 
+      title: "Smart IoT Ecosystem",
       category: "Electronics",
-      description: "Complete home automation system with custom PCBs, wireless sensors, and mobile app control.",
+      description: "Complete home automation system with custom PCB design and wireless sensor integration.",
       tech: ["Arduino", "ESP32", "KiCad", "Firebase"],
-      gradient: "from-blue-500 via-cyan-500 to-teal-500",
       status: "Development"
     },
     {
       id: 3,
-      title: "Cinematic AI Analyzer",
-      category: "Software",
-      description: "Computer vision system that analyzes film techniques, color grading, and narrative structure.",
-      tech: ["Python", "OpenCV", "React", "TensorFlow"],
-      gradient: "from-yellow-500 via-orange-500 to-red-500",
-      status: "Live"
-    },
-    {
-      id: 4,
-      title: "Realtime Audio Visualizer",
-      category: "Creative",
-      description: "WebGL-powered visualization engine that creates immersive graphics synced to audio in real-time.",
-      tech: ["JavaScript", "WebGL", "GLSL", "Web Audio API"],
-      gradient: "from-green-500 via-emerald-500 to-cyan-500",
-      status: "Live"
-    },
-    {
-      id: 5,
-      title: "Quantum Circuit Simulator",
-      category: "Research",
-      description: "Educational platform for designing and simulating quantum circuits with interactive visualization.",
-      tech: ["Python", "Qiskit", "React", "Three.js"],
-      gradient: "from-indigo-500 via-purple-500 to-pink-500",
+      title: "Film Analysis AI",
+      category: "Computer Vision",
+      description: "Computer vision system analyzing cinematography techniques and narrative structure.",
+      tech: ["Python", "OpenCV", "TensorFlow", "React"],
       status: "Beta"
     },
     {
-      id: 6,
-      title: "AI Code Mentor",
-      category: "Education",
-      description: "Intelligent tutoring system that provides personalized coding guidance and real-time feedback.",
-      tech: ["Next.js", "OpenAI", "PostgreSQL", "Docker"],
-      gradient: "from-rose-500 via-pink-500 to-purple-500",
-      status: "Development"
+      id: 4,
+      title: "Audio Visualizer",
+      category: "Creative Tech",
+      description: "Real-time WebGL-powered visualization engine synced with audio analysis.",
+      tech: ["JavaScript", "WebGL", "Web Audio API", "GLSL"],
+      status: "Active"
     }
   ];
 
-  const categories = ["All", "AI", "Electronics", "Software", "Creative", "Research", "Education"];
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects = activeCategory === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
-
   return (
-    <div className="relative z-10 min-h-screen py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-20 relative z-10">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-sm font-mono text-[#C9F31D] tracking-wider uppercase mb-4 block">
+        <div className="mb-20">
+          <div className="inline-block border border-[#C9F31D]/30 rounded-full px-4 py-2 text-[#C9F31D] text-sm font-mono mb-8">
             Featured Work
-          </span>
-          <h1 className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white to-[#C9F31D] bg-clip-text text-transparent">
+          </div>
+          <h1 className="text-5xl md:text-7xl font-thin text-white">
             Projects
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            A collection of innovative solutions spanning AI, electronics, and creative technology
-          </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeCategory === category
-                  ? "bg-[#C9F31D] text-black shadow-lg shadow-[#C9F31D]/25"
-                  : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/10"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredProjects.map((project, index) => (
+        {/* Projects grid */}
+        <div className="space-y-8">
+          {projects.map((project, index) => (
             <div
               key={project.id}
-              className="group relative bg-white/5 backdrop-blur-lg rounded-3xl border border-white/10 overflow-hidden hover:border-[#C9F31D]/30 transition-all duration-500 hover:scale-105"
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group border border-gray-800 hover:border-[#C9F31D]/30 transition-all duration-500 cursor-pointer"
+              onMouseEnter={() => setActiveProject(project.id)}
+              onMouseLeave={() => setActiveProject(null)}
             >
-              {/* Gradient overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
-              
-              <div className="relative p-8">
-                {/* Status badge */}
-                <div className="flex items-center justify-between mb-6">
-                  <span className="px-3 py-1 bg-[#C9F31D]/20 text-[#C9F31D] text-xs font-bold rounded-full border border-[#C9F31D]/30">
-                    {project.category}
-                  </span>
-                  <div className={`w-3 h-3 rounded-full ${
-                    project.status === 'Live' ? 'bg-green-500' : 
-                    project.status === 'Beta' ? 'bg-yellow-500' : 'bg-blue-500'
-                  } animate-pulse`} />
+              <div className="p-8 md:p-12">
+                <div className="grid md:grid-cols-3 gap-8 items-center">
+                  {/* Project info */}
+                  <div className="md:col-span-2 space-y-4">
+                    <div className="flex items-center gap-4">
+                      <span className="text-[#C9F31D] font-mono text-sm">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-gray-500 text-sm">
+                        {project.category}
+                      </span>
+                      <div className={`w-2 h-2 rounded-full ${
+                        project.status === 'Active' ? 'bg-green-500' :
+                        project.status === 'Beta' ? 'bg-yellow-500' : 'bg-blue-500'
+                      }`} />
+                    </div>
+                    
+                    <h3 className="text-2xl md:text-3xl font-light text-white group-hover:text-[#C9F31D] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-gray-400 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map(tech => (
+                        <span key={tech} className="text-xs font-mono text-gray-500 border border-gray-800 px-2 py-1">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="flex flex-col sm:flex-row md:flex-col gap-3">
+                    <button className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-800 text-white hover:border-[#C9F31D] hover:text-[#C9F31D] transition-all duration-300">
+                      <ExternalLink className="w-4 h-4" />
+                      <span className="text-sm">View</span>
+                    </button>
+                    <button className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-800 text-white hover:border-[#C9F31D] hover:text-[#C9F31D] transition-all duration-300">
+                      <Github className="w-4 h-4" />
+                      <span className="text-sm">Code</span>
+                    </button>
+                  </div>
                 </div>
-
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-[#C9F31D] transition-colors">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map(tech => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-white/10 text-white text-xs rounded-lg border border-white/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Project link */}
-                <button className="w-full py-3 bg-white/5 hover:bg-[#C9F31D] hover:text-black text-white font-semibold rounded-xl transition-all duration-300 border border-white/20 hover:border-[#C9F31D]">
-                  View Project
-                </button>
               </div>
 
               {/* Hover effect */}
-              {hoveredProject === project.id && (
-                <div className="absolute inset-0 bg-[#C9F31D]/5 animate-pulse" />
-              )}
+              <div className={`h-px bg-[#C9F31D] transition-all duration-500 ${
+                activeProject === project.id ? 'opacity-100' : 'opacity-0'
+              }`} />
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-            <span className="text-2xl animate-bounce">🚀</span>
-            <p className="text-gray-300">
-              More exciting projects in development
-            </p>
-            <span className="text-2xl animate-bounce" style={{ animationDelay: '0.5s' }}>✨</span>
-          </div>
         </div>
       </div>
     </div>

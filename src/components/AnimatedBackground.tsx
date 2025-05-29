@@ -8,29 +8,22 @@ const AnimatedBackground = () => {
     y: number; 
     size: number;
     speed: number; 
-    symbol: string;
     opacity: number;
+    delay: number;
   }>>([]);
-
-  const techSymbols = [
-    "⚡", "🤖", "🎵", "🎬", "💻", "🔧", "📱", "🎯", 
-    "🚀", "⚙️", "🎹", "📡", "🔬", "💡", "🎨", "🎪",
-    "🔊", "📺", "🎥", "🎮", "🔌", "📊", "🎭", "✨",
-    "🌟", "⭐", "💫", "🔥", "💎", "🎪"
-  ];
 
   useEffect(() => {
     const generateParticles = () => {
       const newParticles = [];
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 20; i++) {
         newParticles.push({
           id: i,
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
-          size: 0.8 + Math.random() * 1.5,
-          speed: 0.3 + Math.random() * 0.7,
-          symbol: techSymbols[Math.floor(Math.random() * techSymbols.length)],
-          opacity: 0.1 + Math.random() * 0.3
+          size: 1 + Math.random() * 2,
+          speed: 0.2 + Math.random() * 0.5,
+          opacity: 0.1 + Math.random() * 0.4,
+          delay: Math.random() * 2
         });
       }
       setParticles(newParticles);
@@ -47,63 +40,53 @@ const AnimatedBackground = () => {
         prevParticles.map(particle => ({
           ...particle,
           y: particle.y - particle.speed,
-          // Reset position when particle moves off screen
-          ...(particle.y < -50 && {
-            y: window.innerHeight + 50,
-            x: Math.random() * window.innerWidth,
-            symbol: techSymbols[Math.floor(Math.random() * techSymbols.length)]
+          ...(particle.y < -10 && {
+            y: window.innerHeight + 10,
+            x: Math.random() * window.innerWidth
           })
         }))
       );
     };
 
-    const interval = setInterval(animateParticles, 16);
+    const interval = setInterval(animateParticles, 50);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <>
-      {/* Gradient background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black" />
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      {/* Main background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-gray-900" />
       
-      {/* Animated mesh gradient */}
-      <div className="fixed inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#C9F31D]/10 via-transparent to-purple-500/10 animate-pulse" />
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#C9F31D]/5 to-transparent" style={{ animationDelay: '1s' }} />
-      </div>
-      
-      {/* Floating particles */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {particles.map(particle => (
-          <div
-            key={particle.id}
-            className="absolute transition-opacity duration-1000"
-            style={{
-              left: `${particle.x}px`,
-              top: `${particle.y}px`,
-              fontSize: `${particle.size}rem`,
-              opacity: particle.opacity,
-              transform: 'translateZ(0)',
-              filter: 'blur(0.5px)'
-            }}
-          >
-            {particle.symbol}
-          </div>
-        ))}
-      </div>
-      
-      {/* Subtle grid pattern */}
+      {/* Subtle grid */}
       <div 
-        className="fixed inset-0 opacity-5" 
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(201, 243, 29, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(201, 243, 29, 0.1) 1px, transparent 1px)
+            linear-gradient(rgba(201, 243, 29, 0.5) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(201, 243, 29, 0.5) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px'
+          backgroundSize: '100px 100px'
         }}
       />
-    </>
+      
+      {/* Floating particles */}
+      {particles.map(particle => (
+        <div
+          key={particle.id}
+          className="absolute w-1 h-1 bg-[#C9F31D] rounded-full"
+          style={{
+            left: `${particle.x}px`,
+            top: `${particle.y}px`,
+            opacity: particle.opacity,
+            animation: `pulse ${2 + particle.delay}s infinite ease-in-out`
+          }}
+        />
+      ))}
+      
+      {/* Ambient glow */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C9F31D] rounded-full opacity-[0.03] blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full opacity-[0.02] blur-3xl" />
+    </div>
   );
 };
 
