@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
 
@@ -8,35 +7,33 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Neural Music Generator",
+      title: "Neusicgen",
       category: "AI/ML",
       description: "Deep learning model for composing original music using transformer architecture and MIDI processing.",
       tech: ["Python", "PyTorch", "MIDI", "React"],
-      status: "Active"
-    },
-    {
-      id: 2,
-      title: "Smart IoT Ecosystem",
-      category: "Electronics",
-      description: "Complete home automation system with custom PCB design and wireless sensor integration.",
-      tech: ["Arduino", "ESP32", "KiCad", "Firebase"],
-      status: "Development"
+      status: "Beta",
+      viewLink: "https://nuesicgen.vercel.app",
+      githubLink: "https://github.com/parveshahameds/nuesicgen"
     },
     {
       id: 3,
-      title: "Film Analysis AI",
+      title: "Reframe",
       category: "Computer Vision",
       description: "Computer vision system analyzing cinematography techniques and narrative structure.",
       tech: ["Python", "OpenCV", "TensorFlow", "React"],
-      status: "Beta"
+      status: "Beta",
+      viewLink: "https://reframeai.vercel.app",
+      githubLink: "https://github.com/parveshahameds/reframeai"
     },
     {
       id: 4,
-      title: "Audio Visualizer",
-      category: "Creative Tech",
-      description: "Real-time WebGL-powered visualization engine synced with audio analysis.",
-      tech: ["JavaScript", "WebGL", "Web Audio API", "GLSL"],
-      status: "Active"
+      title: "Clustify",
+      category: "Customer Segmentation",
+      description: "Clustify is an AI-powered tool that segments customers into actionable clusters using behavioral and transactional data",
+      tech: ["Python", "Flask", "Vercel", "Google Colab"],
+      status: "Active",
+      viewLink: "https://clustify-tbhr.onrender.com",
+      githubLink: "https://github.com/parveshahameds/clustify"
     }
   ];
 
@@ -78,15 +75,15 @@ const Projects = () => {
                         project.status === 'Beta' ? 'bg-yellow-500' : 'bg-blue-500'
                       }`} />
                     </div>
-                    
+
                     <h3 className="text-2xl md:text-3xl font-light text-white group-hover:text-[#C9F31D] transition-colors duration-300">
                       {project.title}
                     </h3>
-                    
+
                     <p className="text-gray-400 leading-relaxed">
                       {project.description}
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map(tech => (
                         <span key={tech} className="text-xs font-mono text-gray-500 border border-gray-800 px-2 py-1">
@@ -97,20 +94,20 @@ const Projects = () => {
                   </div>
 
                   {/* Action buttons */}
-                  <div className="flex flex-col sm:flex-row md:flex-col gap-3">
-                    <button className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-800 text-white hover:border-[#C9F31D] hover:text-[#C9F31D] transition-all duration-300">
-                      <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm">View</span>
-                    </button>
-                    <button className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-800 text-white hover:border-[#C9F31D] hover:text-[#C9F31D] transition-all duration-300">
-                      <Github className="w-4 h-4" />
-                      <span className="text-sm">Code</span>
-                    </button>
+                  <div className="flex md:justify-end gap-4">
+                    <a href={project.viewLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-gray-700 text-gray-300 px-4 py-2 rounded hover:bg-[#C9F31D]/10 transition">
+                      <ExternalLink size={16} />
+                      View
+                    </a>
+                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-gray-700 text-gray-300 px-4 py-2 rounded hover:bg-[#C9F31D]/10 transition">
+                      <Github size={16} />
+                      GitHub
+                    </a>
                   </div>
                 </div>
               </div>
 
-              {/* Hover effect */}
+              {/* Hover underline */}
               <div className={`h-px bg-[#C9F31D] transition-all duration-500 ${
                 activeProject === project.id ? 'opacity-100' : 'opacity-0'
               }`} />

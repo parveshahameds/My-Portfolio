@@ -1,9 +1,9 @@
 
-const About = () => {
+const skills = () => {
   const stats = [
-    { number: "5+", label: "Years Experience" },
-    { number: "50+", label: "Projects Completed" },
-    { number: "10+", label: "Technologies" },
+    { number: "3+", label: "Years Experience" },
+    { number: "30+", label: "Projects Completed" },
+    { number: "5+", label: "Multi Disciplinary Profession" },
     { number: "100%", label: "Dedication" }
   ];
 
@@ -28,7 +28,7 @@ const About = () => {
         {/* Header */}
         <div className="mb-20">
           <div className="inline-block border border-[#C9F31D]/30 rounded-full px-4 py-2 text-[#C9F31D] text-sm font-mono mb-8">
-            About Me
+            skills Me
           </div>
           <h1 className="text-5xl md:text-7xl font-thin text-white mb-8">
             Crafting Digital
@@ -41,9 +41,9 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="space-y-6">
             <p className="text-xl text-gray-300 leading-relaxed">
-              I'm a multidisciplinary creator passionate about the intersection 
+              I'm a multidisciplinary creator passionate skills the intersection 
               of technology and art. My journey spans from electronics design 
-              to AI development, music production to film analysis.
+              to Software development, AI, ML , music production to film analysis.
             </p>
             <p className="text-lg text-gray-400 leading-relaxed">
               What drives me is the belief that the best innovations happen 
@@ -91,4 +91,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default skills;

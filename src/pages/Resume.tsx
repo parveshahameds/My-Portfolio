@@ -1,17 +1,6 @@
-
-import { Download, Mail, Github, Linkedin } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 
 const Resume = () => {
-  const handleDownload = () => {
-    alert("Resume download would start here. Please add your actual resume PDF to the public folder.");
-  };
-
-  const contacts = [
-    { icon: Mail, label: "Email", value: "your.email@example.com" },
-    { icon: Github, label: "GitHub", value: "github.com/username" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/username" }
-  ];
-
   return (
     <div className="min-h-screen py-20 relative z-10">
       <div className="max-w-4xl mx-auto px-6">
@@ -43,28 +32,17 @@ const Resume = () => {
               Comprehensive overview of my technical expertise, creative projects, and professional journey
             </p>
 
-            <button
-              onClick={handleDownload}
+            <a
+              href="/resume.pdf"
+              download
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9F31D] text-black font-medium hover:bg-[#C9F31D]/90 transition-all duration-300"
             >
               <Download className="w-4 h-4" />
               Download PDF
-            </button>
-          </div>
-        </div>
+            </a>
 
-        {/* Contact grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {contacts.map((contact, index) => {
-            const IconComponent = contact.icon;
-            return (
-              <div key={contact.label} className="border border-gray-800 p-6 hover:border-[#C9F31D]/30 transition-all duration-300 group">
-                <IconComponent className="w-6 h-6 text-[#C9F31D] mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-white font-medium mb-2">{contact.label}</h3>
-                <p className="text-gray-400 text-sm font-mono">{contact.value}</p>
-              </div>
-            );
-          })}
+            {/* PDF Preview */}
+          </div>
         </div>
 
         {/* Bottom section */}
@@ -72,7 +50,7 @@ const Resume = () => {
           <div className="inline-flex items-center gap-4 text-gray-500">
             <div className="w-16 h-px bg-gray-800" />
             <span className="text-sm font-mono">Let's Connect</span>
-            <div className="w-16 h-px bg-gray-800" />
+            <div className="w-16 h-px bg-gray-800"/>
           </div>
         </div>
       </div>

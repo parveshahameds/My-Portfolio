@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -20,8 +19,13 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-6 py-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-light text-[#C9F31D] hover:text-white transition-colors">
-            Portfolio
+          <Link to="/" className="hover:text-white transition-colors">
+            <img
+              src="/image-.svg"
+              alt="Logo"
+              className="h-10 w-auto"
+              style={{ display: "inline-block" }}
+            />
           </Link>
 
           {/* Desktop Navigation */}

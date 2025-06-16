@@ -1,0 +1,36 @@
+/* ...existing code... */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #00ff00; /* Adjust border color */
+    padding: 20px;
+    margin: 10px;
+    background-color: #000; /* Ensure consistent background */
+    color: #fff;
+    text-align: center;
+    border-radius: 8px; /* Add rounded corners */
+    width: 100%; /* Ensure card takes full width */
+    max-width: 300px; /* Limit maximum width */
+}
+
+.card a {
+    color: #00ff00; /* Ensure link color matches theme */
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 10px; /* Add space below the link */
+    display: inline-block; /* Ensure margin applies properly */
+}
+
+.card a:hover {
+    text-decoration: underline; /* Add hover effect */
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: 15px; /* Adjust padding for smaller screens */
+        max-width: 90%; /* Reduce width for mobile view */
+    }
+}
+/* ...existing code... */

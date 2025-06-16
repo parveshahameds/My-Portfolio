@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+        }
+        .pdf-container {
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .fallback {
+            display: none;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .fallback {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        // Dynamically remove iframe on mobile devices
+        const iframe = document.getElementById('pdf-frame');
+        if (window.innerWidth <= 768) {
+            iframe.parentNode.removeChild(iframe); // Remove iframe from DOM
+        }
+    </script>
+</body>
+</html>
