@@ -1,4 +1,4 @@
-import { Download, Mail } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Twitter } from "lucide-react";
 
 const Resume = () => {
   return (
@@ -23,11 +23,11 @@ const Resume = () => {
             <div className="w-16 h-16 border border-[#C9F31D] rounded-full flex items-center justify-center mx-auto mb-8 group hover:bg-[#C9F31D] hover:text-black transition-all duration-300">
               <Download className="w-6 h-6 group-hover:scale-110 transition-transform" />
             </div>
-            
+
             <h2 className="text-3xl font-light text-white mb-4">
               Professional Resume
             </h2>
-            
+
             <p className="text-gray-400 mb-8 max-w-md mx-auto">
               Comprehensive overview of my technical expertise, creative projects, and professional journey
             </p>
@@ -47,10 +47,43 @@ const Resume = () => {
 
         {/* Bottom section */}
         <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-4 text-gray-500">
+          <div className="inline-flex items-center gap-4 text-gray-500 mb-6">
             <div className="w-16 h-px bg-gray-800" />
             <span className="text-sm font-mono">Let's Connect</span>
-            <div className="w-16 h-px bg-gray-800"/>
+            <div className="w-16 h-px bg-gray-800" />
+          </div>
+
+          <div className="flex justify-center gap-6 text-gray-400 text-lg">
+            <a
+              href="https://github.com/parveshahameds/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors duration-200"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com/in/parveshahameds/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors duration-200"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="https://x.com/parveshahameds/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors duration-200"
+            >
+              <Twitter className="w-5 h-5" />
+            </a>
+            <a
+              href="mailto:parveshahamed0209@gmail.com"
+              className="hover:text-white transition-colors duration-200"
+            >
+              <Mail className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>
