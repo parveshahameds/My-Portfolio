@@ -6,7 +6,7 @@ const Projects = () => {
 
   const projects = [
     {
-      id: 1,
+      id: 3,
       title: "Neusicgen",
       category: "AI/ML",
       description: "Deep learning model for composing original music using transformer architecture and MIDI processing.",
@@ -16,7 +16,7 @@ const Projects = () => {
       githubLink: "https://github.com/parveshahameds/nuesicgen"
     },
     {
-      id: 3,
+      id: 2,
       title: "Reframe",
       category: "Computer Vision",
       description: "Computer vision system analyzing cinematography techniques and narrative structure.",
@@ -26,7 +26,7 @@ const Projects = () => {
       githubLink: "https://github.com/parveshahameds/reframeai"
     },
     {
-      id: 4,
+      id: 1,
       title: "Clustify",
       category: "Customer Segmentation",
       description: "Clustify is an AI-powered tool that segments customers into actionable clusters using behavioral and transactional data",
