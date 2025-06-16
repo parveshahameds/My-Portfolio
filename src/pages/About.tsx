@@ -28,7 +28,7 @@ const skills = () => {
         {/* Header */}
         <div className="mb-20">
           <div className="inline-block border border-[#C9F31D]/30 rounded-full px-4 py-2 text-[#C9F31D] text-sm font-mono mb-8">
-            skills Me
+            skills
           </div>
           <h1 className="text-5xl md:text-7xl font-thin text-white mb-8">
             Crafting Digital
