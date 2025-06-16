@@ -6,14 +6,14 @@ const Projects = () => {
 
   const projects = [
     {
-      id: 3,
-      title: "Neusicgen",
-      category: "AI/ML",
-      description: "Deep learning model for composing original music using transformer architecture and MIDI processing.",
-      tech: ["Python", "PyTorch", "MIDI", "React"],
-      status: "Beta",
-      viewLink: "https://nuesicgen.vercel.app",
-      githubLink: "https://github.com/parveshahameds/nuesicgen"
+      id: 1,
+      title: "Clustify",
+      category: "Customer Segmentation",
+      description: "Clustify is an AI-powered tool that segments customers into actionable clusters using behavioral and transactional data",
+      tech: ["Python", "Flask", "Vercel", "Google Colab"],
+      status: "Active",
+      viewLink: "https://clustify-tbhr.onrender.com",
+      githubLink: "https://github.com/parveshahameds/clustify"
     },
     {
       id: 2,
@@ -25,15 +25,16 @@ const Projects = () => {
       viewLink: "https://reframeai.vercel.app",
       githubLink: "https://github.com/parveshahameds/reframeai"
     },
+    
     {
-      id: 1,
-      title: "Clustify",
-      category: "Customer Segmentation",
-      description: "Clustify is an AI-powered tool that segments customers into actionable clusters using behavioral and transactional data",
-      tech: ["Python", "Flask", "Vercel", "Google Colab"],
-      status: "Active",
-      viewLink: "https://clustify-tbhr.onrender.com",
-      githubLink: "https://github.com/parveshahameds/clustify"
+      id: 3,
+      title: "Neusicgen",
+      category: "AI/ML",
+      description: "Deep learning model for composing original music using transformer architecture and MIDI processing.",
+      tech: ["Python", "PyTorch", "MIDI", "React"],
+      status: "Beta",
+      viewLink: "https://nuesicgen.vercel.app",
+      githubLink: "https://github.com/parveshahameds/nuesicgen"
     }
   ];
 
