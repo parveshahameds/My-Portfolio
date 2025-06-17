@@ -33,8 +33,8 @@ const Projects = () => {
       description: "Deep learning model for composing original music using transformer architecture and MIDI processing.",
       tech: ["Python", "PyTorch", "MIDI", "React"],
       status: "Beta",
-      viewLink: "https://nuesicgen.vercel.app",
-      githubLink: "https://github.com/parveshahameds/nuesicgen"
+      viewLink: "https://neusicgen.vercel.app",
+      githubLink: "https://github.com/parveshahameds/neusicgen"
     }
   ];
 
