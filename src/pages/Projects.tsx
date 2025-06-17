@@ -50,17 +50,8 @@ const Projects = () => {
       description: "Deep learning model for composing original music using transformer architecture and MIDI processing.",
       tech: ["Python", "PyTorch", "MIDI", "React"],
       status: "Beta",
-      viewLink: "https://nuesicgen.vercel.app",
-      githubLink: "https://github.com/parveshahameds/nuesicgen"
-    },
-    {
-      id: 4,
-      title: "Ck Milk",
-      category: "App Development",
-      description: "An app based ecommerce platform for CK Milk, providing a seamless shopping and tracking experience.",
-      tech: ["Java", "Figma", "xml", "Playstore Console"],
-      status: "Active",
-      viewLink: "https://play.google.com/store/apps/details?id=com.technoficials.ckmilk&hl=en_IN"
+      viewLink: "https://neusicgen.vercel.app",
+      githubLink: "https://github.com/parveshahameds/neusicgen"
     }
   ];
 
