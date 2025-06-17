@@ -3,8 +3,26 @@ import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState<number | null>(null);
-
+  type Project = {
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    tech: string[];
+    status: string;
+    viewLink?: string;
+    githubLink?: string;
+  };
   const projects = [
+    {
+      id: 5,
+      title: "Touch Verify Kiosk",
+      category: "Arduino",
+      description: "A fingerprint based voting system with python authentication and arduino fragement.",
+      tech: ["Arduino", "Python", "C++"],
+      status: "Active",
+      githubLink: "https://github.com/parveshahameds/TouchVerifyKiosk/"
+    },
     {
       id: 1,
       title: "Clustify",
@@ -25,7 +43,6 @@ const Projects = () => {
       viewLink: "https://reframeai.vercel.app",
       githubLink: "https://github.com/parveshahameds/reframeai"
     },
-    
     {
       id: 3,
       title: "Neusicgen",
@@ -35,6 +52,15 @@ const Projects = () => {
       status: "Beta",
       viewLink: "https://nuesicgen.vercel.app",
       githubLink: "https://github.com/parveshahameds/nuesicgen"
+    },
+    {
+      id: 4,
+      title: "Ck Milk",
+      category: "App Development",
+      description: "An app based ecommerce platform for CK Milk, providing a seamless shopping and tracking experience.",
+      tech: ["Java", "Figma", "xml", "Playstore Console"],
+      status: "Active",
+      viewLink: "https://play.google.com/store/apps/details?id=com.technoficials.ckmilk&hl=en_IN"
     }
   ];
 
@@ -96,14 +122,28 @@ const Projects = () => {
 
                   {/* Action buttons */}
                   <div className="flex md:justify-end gap-4">
-                    <a href={project.viewLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-gray-700 text-gray-300 px-4 py-2 rounded hover:bg-[#C9F31D]/10 transition">
-                      <ExternalLink size={16} />
-                      View
-                    </a>
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-gray-700 text-gray-300 px-4 py-2 rounded hover:bg-[#C9F31D]/10 transition">
-                      <Github size={16} />
-                      GitHub
-                    </a>
+                    {project.viewLink && (
+                      <a
+                        href={project.viewLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 border border-gray-700 text-gray-300 px-4 py-2 rounded hover:bg-[#C9F31D]/10 transition"
+                      >
+                        <ExternalLink size={16} />
+                        View
+                      </a>
+                    )}
+                    {project.githubLink && (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 border border-gray-700 text-gray-300 px-4 py-2 rounded hover:bg-[#C9F31D]/10 transition"
+                      >
+                        <Github size={16} />
+                        GitHub
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
