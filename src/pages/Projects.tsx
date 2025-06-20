@@ -52,6 +52,15 @@ const Projects = () => {
       status: "Beta",
       viewLink: "https://neusicgen.vercel.app",
       githubLink: "https://github.com/parveshahameds/neusicgen"
+    },
+    {
+      id:6,
+      title: "Ck Milk",
+      category: "Android App",
+      description: "An Android app for managing milk delivery, tracking orders, and customer interactions.",
+      tech: ["Java", "Android Studio", "Firebase","Play Store Console"],
+      status: "Active",
+      viewLink: "https://play.google.com/store/apps/details?id=com.technoficials.ckmilk"
     }
   ];
 
