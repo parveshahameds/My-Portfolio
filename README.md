@@ -1,5 +1,13 @@
 # 💻 Parvesh Ahamed – Developer Portfolio
 
+![image](https://github.com/user-attachments/assets/d0fc0073-f1ac-482a-b6fb-496ba6218ca1)
+![image](https://github.com/user-attachments/assets/51561b9f-0a6c-4d33-99e7-2f4263c275a0)
+![image](https://github.com/user-attachments/assets/8dd7dc61-b78e-49d1-84ff-0ef105914011)
+![image](https://github.com/user-attachments/assets/52c69c11-11e5-4918-9e9e-24bc8bed7405)
+
+
+
+
 Welcome to my personal portfolio website!  
 This is a dynamic and responsive React-based site that showcases my technical projects, skills, creative work, and resume—all in one place.
 
