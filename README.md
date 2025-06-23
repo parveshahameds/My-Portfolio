@@ -7,7 +7,7 @@ This is a dynamic and responsive React-based site that showcases my technical pr
 
 ## 🚀 Live Demo
 
-🌐 [View Portfolio](https://parveshahameds.vercel.app) *(if deployed)*
+🌐 [View Portfolio](https://parveshahameds.vercel.app) 
 
 ---
 
@@ -57,7 +57,7 @@ With 3+ years of experience and 30+ projects completed, I specialize in:
 
 ## 📄 Resume
 
-- Get a downloadable PDF version of my professional resume directly from the [Resume](https://parveshahameds.vercel.app/resume) section (or `/resume.pdf`).
+- Get a downloadable PDF version of my professional resume directly from the [Resume](https://parveshahameds.vercel.app/resume) section 
 
 ---
 
