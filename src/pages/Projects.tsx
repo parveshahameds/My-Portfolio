@@ -205,9 +205,8 @@ const Projects = () => {
                 )}
                 {project.apkLink && (
                   <a
-                    href={project.apkLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={project.apkLink.startsWith("/") ? project.apkLink : "/" + project.apkLink.replace(/^public\//, "")}
+                    download
                     className="flex items-center gap-2 border border-gray-700 text-gray-300 px-3 py-1.5 rounded hover:bg-[#C9F31D]/10 transition text-xs"
                   >
                     <Github size={14} />
@@ -226,4 +225,5 @@ const Projects = () => {
   );
 };
 
+export default Projects;
 export default Projects;
