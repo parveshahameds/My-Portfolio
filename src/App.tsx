@@ -12,6 +12,7 @@ import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import Navigation from "./components/Navigation";
 import AnimatedBackground from "./components/AnimatedBackground";
+import { Analytics } from "@vercel/analytics/react"
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           </main>
         </BrowserRouter>
         <SpeedInsights />
+        <Analytics />
       </div>
     </TooltipProvider>
   </QueryClientProvider>
