@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import SkillsPage from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
@@ -34,6 +35,7 @@ const App = () => (
             </Routes>
           </main>
         </BrowserRouter>
+        <SpeedInsights />
       </div>
     </TooltipProvider>
   </QueryClientProvider>
