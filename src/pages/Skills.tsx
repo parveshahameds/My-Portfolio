@@ -98,16 +98,17 @@ const SkillsPage: React.FC = () => {
   }, []);
 
   const techStack: SkillItem[] = [
-    { icon: <Code className="w-8 h-8" />, name: 'C', category: 'tech' },
-    { icon: <CircuitBoard className="w-8 h-8" />, name: 'Embedded C', category: 'tech' },
+   
+    { icon: <CircuitBoard className="w-8 h-8" />, name: 'PCB Designing', category: 'tech' },
+     { icon: <Code className="w-8 h-8" />, name: 'C', category: 'tech' },
     { icon: <Code className="w-8 h-8" />, name: 'C++', category: 'tech' },
     { icon: <FileCode className="w-8 h-8" />, name: 'Python', category: 'tech' },
     { icon: <Globe className="w-8 h-8" />, name: 'HTML', category: 'tech' },
     { icon: <FileCode className="w-8 h-8" />, name: 'JavaScript', category: 'tech' },
     { icon: <Palette className="w-8 h-8" />, name: 'CSS', category: 'tech' },
+    { icon: <CircuitBoard className="w-8 h-8" />, name: 'Embedded C', category: 'tech' },
     { icon: <Database className="w-8 h-8" />, name: 'Firebase', category: 'tech' },
     { icon: <GitBranch className="w-8 h-8" />, name: 'GitHub', category: 'tech' },
-    { icon: <Coffee className="w-8 h-8" />, name: 'Java (Beginner)', category: 'tech' },
     { icon: <Monitor className="w-8 h-8" />, name: 'UI/UX Designing', category: 'tech' },
     { icon: <Palette className="w-8 h-8" />, name: 'Graphic Designing', category: 'tech' },
     { icon: <Video className="w-8 h-8" />, name: 'Video Editing', category: 'tech' },
